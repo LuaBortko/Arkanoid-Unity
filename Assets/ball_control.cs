@@ -27,6 +27,10 @@ public class ball_control : MonoBehaviour
 
             rb2d.linearVelocity = vel;
         }
+        if(coll.gameObject.tag == "Tijolo"){
+            Destroy(coll.gameObject);
+            game_manager.pontuacao += 100; 
+        }
     }
 
 
