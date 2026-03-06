@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class layout_final : MonoBehaviour
+public class menu : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -11,7 +11,7 @@ public class layout_final : MonoBehaviour
     void OnGUI()
     {
         GUIStyle titleStyle = new GUIStyle();
-        titleStyle.fontSize = 100;
+        titleStyle.fontSize = 200;
         titleStyle.alignment = TextAnchor.MiddleCenter;
         titleStyle.normal.textColor = Color.white;
 
@@ -26,29 +26,19 @@ public class layout_final : MonoBehaviour
         float centerX = Screen.width / 2;
         float centerY = Screen.height / 2;
 
-        // Texto principal
-
-        string texto;
-        if(game_manager.win == 0){
-            texto = "GAME OVER :(";
-        }else{
-            texto = "VICTORY B)";
-        }
-        GUI.Label(new Rect(centerX - 200, centerY - 100, 400, 60), texto, titleStyle);
-
+        GUI.Label(new Rect(centerX - 200, centerY - 100, 400, 60), "Arkanoid", titleStyle);
         // Texto secundário
-        GUI.Label(new Rect(centerX - 200, centerY + 100, 400, 40), "Pontuação: "+ game_manager.pontAnterior, textStyle);
-
+        GUI.Label(new Rect(centerX - 200, centerY + 100, 400, 40), "Pontuação anterior: "+ game_manager.pontAnterior, textStyle);
         // Botão
-        if (GUI.Button(new Rect(centerX - 150, centerY + 200, 300, 80),"Recomeçar", buttonStyle))
+        if (GUI.Button(new Rect(centerX - 150, centerY + 200, 300, 80),"Começar", buttonStyle))
         {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("Fase1");
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-    
+        
     }
 }

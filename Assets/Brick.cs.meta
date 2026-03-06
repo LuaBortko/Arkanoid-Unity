@@ -1,2 +1,12 @@
 fileFormatVersion: 2
 guid: 15b12a864bdf6464696947abf88b5032
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - coracaoPrefab: {fileID: 3311047825242323470, guid: e8b224c9414044447a9d43486a925761, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

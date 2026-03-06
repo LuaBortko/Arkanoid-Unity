@@ -3,7 +3,7 @@ using UnityEngine;
 public class ball_control : MonoBehaviour
 {
     private Rigidbody2D rb2d;               // Define o corpo rigido 2D que representa a bola
-    private int controller;             // Define a velocidade da raquete
+    int controller;             // Define a velocidade da raquete
     GameObject thePlayer; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,10 +27,14 @@ public class ball_control : MonoBehaviour
 
             rb2d.linearVelocity = vel;
         }
-        if(coll.gameObject.tag == "Tijolo"){
-            Destroy(coll.gameObject);
-            game_manager.pontuacao += 100; 
-        }
+        //if(coll.gameObject.tag == "Tijolo"){
+        //    Destroy(coll.gameObject);
+        //    game_manager.pontuacao += 100; 
+        //}
+    }
+
+    public void controlZera(){
+        controller = 0;
     }
 
 

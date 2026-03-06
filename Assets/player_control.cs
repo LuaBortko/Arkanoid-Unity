@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class player_control : MonoBehaviour
 {
@@ -7,11 +8,13 @@ public class player_control : MonoBehaviour
     public float speed = 20.0f;             // Define a velocidade da raquete
     private Rigidbody2D rb2d;               // Define o corpo rigido 2D que representa a raquete
     public float boundX = 7.5f;            // Define os limites em Y
+    Vector3 tamanhoOriginal;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();     // Inicializa a raquete
         transform.position = new Vector3(0f, -4f, transform.position.z);
+        tamanhoOriginal = transform.localScale;
     }
 
     // Update is called once per frame
@@ -37,6 +40,26 @@ public class player_control : MonoBehaviour
             pos.x = -boundX;                    // Corrige a posicao da raquete caso ele ultrapasse o limite inferior
         }
         transform.position = pos;               // Atualiza a posição da raquete
-
     }
+
+    public void inicio(){
+        transform.position = new Vector3(0f, -4f, transform.position.z);
+    }
+
+    public IEnumerator AumentarPlayer(float tempo)
+    {
+        transform.localScale = new Vector3(
+            tamanhoOriginal.x * 1.5f,
+            tamanhoOriginal.y,
+            tamanhoOriginal.z
+        );
+        yield return new WaitForSeconds(tempo);
+        transform.localScale = tamanhoOriginal;
+    }
+
+    public void AtivarPowerUp(float tempo)
+    {
+        StartCoroutine(AumentarPlayer(tempo));
+    }
+
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bola
   - Tijolo
+  - PowerUp
   layers:
   - Default
   - TransparentFX
